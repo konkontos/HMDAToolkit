@@ -2,6 +2,8 @@ import XCTest
 @testable import HMDAToolkit
 
 final class HMDAToolkitTests: XCTestCase {
+    
+/*
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -12,4 +14,6 @@ final class HMDAToolkitTests: XCTestCase {
     static var allTests = [
         ("testExample", testExample),
     ]
+*/
+    
 }
