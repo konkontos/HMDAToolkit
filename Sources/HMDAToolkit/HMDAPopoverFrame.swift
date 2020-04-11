@@ -10,9 +10,9 @@ import UIKit
 
 open class HMDAPopoverFrame: UIPopoverBackgroundView {
     
-    var arrowColor: UIColor?
+    public var arrowColor: UIColor?
     
-    var backgroundImage: UIImage?
+    public var backgroundImage: UIImage?
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
