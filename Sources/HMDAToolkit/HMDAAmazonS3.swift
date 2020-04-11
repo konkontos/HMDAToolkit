@@ -8,8 +8,6 @@
 
 import Foundation
 
-#if canImport(S3)
-
 import S3
 import NIOTransportServices
 import NIO
@@ -212,4 +210,3 @@ struct HMDAAmazonS3 {
     
 }
 
-#endif
