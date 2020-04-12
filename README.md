@@ -11,6 +11,3 @@ I do plan to bring it to a release point and document it in the near (ish) futur
 
 ![Swift 5.x](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)
 ![iOS](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)
-
-
-
