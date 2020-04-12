@@ -18,7 +18,7 @@ These are not included in `package.swift`.m
 
 Add them to your project to support additional features.
 
-### For AmazonS3 support
+### Includes
 
 - [AWS Swift SDK](https://github.com/swift-aws/aws-sdk-swift)
 
