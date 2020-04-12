@@ -16,11 +16,11 @@ public typealias S3Handler = (Result<Any, Error>) -> Void
 public typealias S3ProgressHandler = (Double) -> Void
 
 public struct HMDAAmazonS3 {
-    var s3: S3
-    var eventLoopGroup: NIOTSEventLoopGroup
-    var bucketID: String
+    public var s3: S3
+    public var eventLoopGroup: NIOTSEventLoopGroup
+    public var bucketID: String
     
-    init(withAccessKey accessKey: String, andSecretKey secretKey: String, andBucketID bucketID: String) {
+    public init(withAccessKey accessKey: String, andSecretKey secretKey: String, andBucketID bucketID: String) {
         eventLoopGroup = NIOTSEventLoopGroup(loopCount: 10, defaultQoS: .background)
         
         self.bucketID = bucketID
@@ -34,11 +34,11 @@ public struct HMDAAmazonS3 {
                 eventLoopGroupProvider: .shared(eventLoopGroup))
     }
     
-    var eventLoop: EventLoop? {
+    public var eventLoop: EventLoop? {
         s3.client.eventLoopGroup.next()
     }
     
-    static func getFiles(s3config: HMDAAmazonS3, completionHandler: @escaping S3Handler) {
+    static public func getFiles(s3config: HMDAAmazonS3, completionHandler: @escaping S3Handler) {
         
         let future = s3config.s3.listObjects(S3.ListObjectsRequest(bucket: s3config.bucketID))
         
@@ -64,7 +64,7 @@ public struct HMDAAmazonS3 {
         
     }
     
-    static func downloadFile(s3config: HMDAAmazonS3,
+    static public func downloadFile(s3config: HMDAAmazonS3,
                              fileKey: String,
                              downloadPath: String,
                              progressHandler: @escaping S3ProgressHandler,
@@ -101,7 +101,7 @@ public struct HMDAAmazonS3 {
         
     }
     
-    static func getObject(s3config: HMDAAmazonS3,
+    static public func getObject(s3config: HMDAAmazonS3,
                           fileKey: String,
                           completionHandler: @escaping S3Handler) {
         
@@ -125,7 +125,7 @@ public struct HMDAAmazonS3 {
         
     }
     
-    static func listBuckets(s3config: HMDAAmazonS3, completionHandler: @escaping S3Handler) {
+    static public func listBuckets(s3config: HMDAAmazonS3, completionHandler: @escaping S3Handler) {
         
         let future = s3config.s3.listBuckets()
         
@@ -150,7 +150,7 @@ public struct HMDAAmazonS3 {
         
     }
 
-    static func deleteFile(s3config: HMDAAmazonS3,
+    static public func deleteFile(s3config: HMDAAmazonS3,
                            fileKey: String,
                            completionHandler: @escaping S3Handler) {
         
@@ -176,7 +176,7 @@ public struct HMDAAmazonS3 {
         
     }
     
-    static func deleteFiles(s3config: HMDAAmazonS3,
+    static public func deleteFiles(s3config: HMDAAmazonS3,
                             fileKeys: [String],
                             completionHandler: @escaping S3Handler) {
 
