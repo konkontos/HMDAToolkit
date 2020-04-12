@@ -15,7 +15,7 @@ import NIO
 public typealias S3Handler = (Result<Any, Error>) -> Void
 public typealias S3ProgressHandler = (Double) -> Void
 
-struct HMDAAmazonS3 {
+public struct HMDAAmazonS3 {
     var s3: S3
     var eventLoopGroup: NIOTSEventLoopGroup
     var bucketID: String
