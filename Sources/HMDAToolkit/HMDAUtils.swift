@@ -51,15 +51,6 @@ public extension CGRect {
     
 }
 
-public extension UIFont {
-    
-    func addingToPointSize(constant: CGFloat) -> UIFont? {
-        let size = self.pointSize
-        
-        return UIFont(name: self.fontName, size: size + constant)
-    }
-    
-}
 
 public extension UIDeviceOrientation {
     

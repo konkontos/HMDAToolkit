@@ -6,7 +6,7 @@
 //  Copyright © 2016 Handmade Apps Ltd. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public typealias JSONObject = [String: Any]
 public typealias JSONArray = [JSONObject]
@@ -66,6 +66,10 @@ public extension Dictionary {
 
 
 public extension JSONSerialization {
+    
+    class func jsonObject(fromAssetNamed assetName: String) -> Any? {
+        NSDataAsset(name: NSDataAssetName("FertilityLookupData"))?.data.jsonObject()
+    }
     
     class func jsonObject(from pathURL: URL) -> Any? {
         return JSONSerialization.jsonObject(fromPath: pathURL.path)
