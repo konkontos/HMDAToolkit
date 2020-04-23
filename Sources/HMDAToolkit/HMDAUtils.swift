@@ -212,6 +212,10 @@ public extension NSObject {
         return classForCoder().description().components(separatedBy: ".").last!
     }
     
+    var classStr: String {
+        String(describing: self.classForCoder)
+    }
+    
 }
 
 public extension Data {
