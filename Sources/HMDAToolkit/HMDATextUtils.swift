@@ -19,9 +19,7 @@ public extension Data {
 public extension UIFont {
     
     func addingToPointSize(constant: CGFloat) -> UIFont? {
-        let size = self.pointSize
-        
-        return UIFont(name: self.fontName, size: size + constant)
+        self.withSize(self.pointSize + constant)
     }
     
     class func font(from fontData: Data) -> UIFont? {
