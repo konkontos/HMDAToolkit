@@ -161,7 +161,7 @@ public extension URL {
 public extension URLSessionConfiguration {
     
     func ephemeralConfiguration(withTimeout timeout: TimeInterval) -> URLSessionConfiguration {
-        var config = URLSessionConfiguration.ephemeral
+        let config = URLSessionConfiguration.ephemeral
         config.timeoutIntervalForRequest = timeout
         
         return config

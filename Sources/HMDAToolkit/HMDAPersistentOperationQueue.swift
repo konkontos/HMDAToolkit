@@ -129,9 +129,12 @@ public class HMDAPersistentOperationQueue: OperationQueue, HMDAPersistentOperati
             }
             
             for operationDict in operationsArray {
-                let operation = NSKeyedUnarchiver.unarchiveObject(with: operationDict["archiveData"] as! Data) as! HMDAPersistentOperation
                 
-                addOperation(operation)
+                if let operation = try? NSKeyedUnarchiver.unarchivedObject(ofClass: HMDAPersistentOperation.self,
+                                                                           from: operationDict["archiveData"] as! Data) {
+                    addOperation(operation)
+                }
+                
             }
             
         }
@@ -151,14 +154,17 @@ public class HMDAPersistentOperationQueue: OperationQueue, HMDAPersistentOperati
         
         for operation in operations as! [HMDAPersistentOperation] {
             
-            let operationArchive = NSKeyedArchiver.archivedData(withRootObject: operation)
+            if let operationArchive = try? NSKeyedArchiver.archivedData(withRootObject: operation, requiringSecureCoding: false) {
+                
+                var opDict = OperationDict()
+                
+                opDict["creationStamp"] = operation.creationStamp!
+                opDict["archiveData"] = operationArchive
+                
+                operationsArray.append(opDict)
+                
+            }
             
-            var opDict = OperationDict()
-            
-            opDict["creationStamp"] = operation.creationStamp!
-            opDict["archiveData"] = operationArchive
-            
-            operationsArray.append(opDict)
         }
         
         operationsArchive["operations"] = operationsArray

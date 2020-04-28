@@ -49,7 +49,7 @@ public class HMDAKeychain {
 //    var accessibility
     
     public class func test() {
-        kSecAttrAccessible
+//        kSecAttrAccessible
 //        String(kSecAttrAccessibleAlways)
     }
     
